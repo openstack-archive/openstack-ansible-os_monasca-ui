@@ -1,0 +1,5 @@
+---
+# defaults file for openstack-ansible-os_monasca-ui
+monasca_client_pkg: python-monascaclient
+monasca_client_pkg_ver: latest 
+monasca_ui_git_url: "https://git.openstack.org/openstack/monasca-ui.git"
