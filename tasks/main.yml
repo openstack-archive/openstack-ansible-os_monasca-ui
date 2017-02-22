@@ -1,0 +1,8 @@
+---
+# tasks file for openstack-ansible-os_monasca-ui
+
+- name: Clone monasca-ui repo
+  git:
+    repo: "{{ monasca_ui_git_repo }}"
+    dest: "{{ monasca_ui_install_path }}"
+    version: "{{ monasca_ui_git_install_branch }}"
