@@ -16,5 +16,6 @@
 - name: Playbook for role testing
   hosts: localhost
   connection: local
+  become: true
   tasks:
     - debug: msg="Testing is still to be implemented"
