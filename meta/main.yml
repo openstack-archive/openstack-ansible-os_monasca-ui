@@ -31,3 +31,6 @@ galaxy_info:
     - Monasca
 
 dependencies: []
+openstack_ansible_info:
+  maturity: incubated
+  created_during: pike
