@@ -16,5 +16,8 @@ Ansible role to deploy Monasca UI.
 Documentation for the project can be found at:
   https://docs.openstack.org/openstack-ansible-os_monasca-ui/latest/
 
+Release notes for the project can be found at:
+  https://docs.openstack.org/releasenotes/openstack-ansible-os_monasca-ui
+
 The project home is at:
   https://launchpad.net/openstack-ansible
