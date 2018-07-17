@@ -18,3 +18,22 @@
     repo: "{{ monasca_ui_git_repo }}"
     dest: "{{ monasca_ui_install_path }}"
     version: "{{ monasca_ui_git_install_branch }}"
+- include_tasks: mq_setup.yml
+  when:
+    - "monasca-ui_services['monasca-ui-api']['group'] in group_names"
+    - "inventory_hostname == ((groups[monasca-ui_services['monasca-ui-api']['group']]| intersect(ansible_play_hosts)) | list)[0]"
+  with_items:
+    - oslomsg_setup_host: "{{ monasca-ui_oslomsg_rpc_setup_host }}"
+      oslomsg_userid: "{{ monasca-ui_oslomsg_rpc_userid }}"
+      oslomsg_password: "{{ monasca-ui_oslomsg_rpc_password }}"
+      oslomsg_vhost: "{{ monasca-ui_oslomsg_rpc_vhost }}"
+      oslomsg_transport: "{{ monasca-ui_oslomsg_rpc_transport }}"
+    - oslomsg_setup_host: "{{ monasca-ui_oslomsg_notify_setup_host }}"
+      oslomsg_userid: "{{ monasca-ui_oslomsg_notify_userid }}"
+      oslomsg_password: "{{ monasca-ui_oslomsg_notify_password }}"
+      oslomsg_vhost: "{{ monasca-ui_oslomsg_notify_vhost }}"
+      oslomsg_transport: "{{ monasca-ui_oslomsg_notify_transport }}"
+  no_log: true
+  tags:
+
+    - monasca-ui-config

@@ -19,3 +19,7 @@ monasca_ui_git_install_branch: master
 
 ## Monasca UI local install path
 monasca_ui_install_path: "/opt/monasca-ui"
+monasca-ui_oslomsg_rpc_host_group: "{{ oslomsg_rpc_host_group | default('rabbitmq_all') }}"
+monasca-ui_oslomsg_notify_host_group: "{{ oslomsg_notify_host_group | default('rabbitmq_all') }}"
+monasca-ui_oslomsg_rpc_setup_host: "{{ (monasca-ui_oslomsg_rpc_host_group in groups) | ternary(groups[monasca-ui_oslomsg_rpc_host_group][0], 'localhost') }}"
+monasca-ui_oslomsg_notify_setup_host: "{{ (monasca-ui_oslomsg_notify_host_group in groups) | ternary(groups[monasca-ui_oslomsg_notify_host_group][0], 'localhost') }}"
