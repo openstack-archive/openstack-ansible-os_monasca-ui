@@ -1,3 +1,4 @@
+---
 - name: Install Monasca UI
    hosts: all
    user: root
